@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 name = findViewById(R.id.name);
                 String xue = xuehao.getText().toString();
                 String na = name.getText().toString();
-                String save = "id:" + xue + "name:" + na;
+                String save = "id:" + xue + "\nname:" + na;
                 Log.v(TAG,save);
                 try{
                     if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         out = new BufferedOutputStream(fileOutputStream);
                         try{
                             out.write(save.getBytes(StandardCharsets.UTF_8));
-                            Log.v(TAG,"写入成功");
+                            Log.v(TAG,"write successful");
                         }finally {
                             if(out != null){
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.v(TAG,"环境错误");
+                    Log.v(TAG,"错误");
                 }
             }
         });
